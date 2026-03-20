@@ -1,0 +1,297 @@
+:root {
+    --primary-color: #4b0082; /* Indigo/Purple for Açai */
+    --secondary-color: #6a0dad;
+    --accent-color: #32cd32; /* Lime Green for freshness */
+    --text-color: #ffffff;
+    --bg-overlay: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #12001a; /* Dark purple background */
+    overflow-x: hidden;
+}
+
+.animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Back to full width background */
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#animation-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.6);
+    transform: scale(1.15); /* Zoom in to hide text/watermarks on top and bottom */
+}
+
+/* Site layout restored to full width */
+header, main, footer {
+    width: 100%; 
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 0, 26, 0.4); /* Transparent to see the 100% background */
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+nav {
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero section: Full width background, text stays on the left */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+    background: transparent; /* Animation is visible behind */
+}
+
+.hero-content {
+    width: 40%; /* Reduced width to keep it tight on the left */
+    padding-right: 2%;
+    z-index: 1;
+    position: relative;
+    text-align: left; /* Explicitly aligned left */
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Significantly smaller */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    line-height: 1.2;
+    color: var(--accent-color);
+}
+
+.hero-content p {
+    font-size: 1rem; /* Smaller description */
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    padding: 0.8rem 1.8rem; /* Smaller button to match text */
+    font-size: 0.9rem;
+    background-color: var(--accent-color);
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #2eb82e;
+}
+
+/* Regular sections back to full width and centered */
+.menu-section, .offers-section, .contact-section {
+    width: 100%;
+    padding: 8rem 10%;
+    text-align: center;
+    background-color: #1a0026;
+}
+
+.offers-section {
+    background-color: #12001a;
+}
+
+.menu-section h2, .offers-section h2, .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: var(--accent-color);
+}
+
+.menu-grid, .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-item, .offer-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--accent-color);
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.offer-card {
+    border-color: var(--accent-color);
+    background: rgba(50, 205, 50, 0.05);
+}
+
+.menu-item:hover, .offer-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.menu-item h3, .offer-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.price, .discount {
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.discount {
+    color: var(--accent-color);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    text-align: left;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+footer {
+    width: 100%;
+    padding: 3rem;
+    text-align: center;
+    background: #0d0014;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1024px) {
+    .animation-container {
+        position: relative;
+        width: 100%;
+        height: 40vh;
+        border-left: none;
+        border-bottom: 2px solid var(--accent-color);
+    }
+    
+    header {
+        position: relative;
+    }
+    
+    .hero {
+        flex-direction: column;
+        height: auto;
+        padding-top: 2rem;
+    }
+    
+    .hero-content {
+        width: 100%;
+        padding: 4rem 5%;
+        text-align: center;
+    }
+    
+    .menu-section, .offers-section, .contact-section {
+        padding: 4rem 5%;
+    }
+}
